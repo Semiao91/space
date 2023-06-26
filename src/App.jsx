@@ -1,7 +1,8 @@
 import React from "react";
-import "./index.css";
+import 'tailwindcss/tailwind.css'; // Tailwind CSS
+import './index.css'
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/navbar.jsx";
 import { useState } from "react";
 import crossIcon from "./assets/shared/icon-close.svg";
 

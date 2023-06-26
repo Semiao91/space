@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 .bg-desktop {
-    background-image: url('./assets/home/background-home-desktop.jpg');
-  }
-  
+  background-image: url('./assets/home/background-home-desktop.jpg');
+}
+
   @media (max-width: 1024px) {
     .bg-desktop {
       background-image: url('./assets/home/background-home-tablet.jpg');
