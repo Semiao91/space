@@ -5,7 +5,18 @@ import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import NavBar from "./components/navbar.jsx";
 import { useState } from "react";
 import crossIcon from "./assets/shared/icon-close.svg";
-
+import moonImage from './assets/destination/image-moon.png';
+import marsImage from './assets/destination/image-mars.png';
+import europaImage from './assets/destination/image-europa.png';
+import titanImage from './assets/destination/image-titan.png';
+import douglasImage from './assets/crew/image-douglas-hurley.png'
+import markImage from './assets/crew/image-mark-shuttleworth.png'
+import victorImage from './assets/crew/image-victor-glover.png'
+import anoushImage from './assets/crew/image-anousheh-ansari.png'
+import vehicleImage from './assets/technology/image-launch-vehicle-portrait.jpg'
+import spaceportImage from './assets/technology/image-spaceport-portrait.jpg'
+import capsuleImage from './assets/technology/image-space-capsule-portrait.jpg'
+import burguer from './assets/shared/icon-hamburger.svg'
 
 const Home = () => {
 
@@ -23,7 +34,7 @@ const Home = () => {
           <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"><g fill="none" fillRule="evenodd"><circle cx="24" cy="24" r="24" fill="#FFF" /><path fill="#0B0D17" d="M24 0c0 16-8 24-24 24 15.718.114 23.718 8.114 24 24 0-16 8-24 24-24-16 0-24-8-24-24z" /></g>
           </svg>
         </button>
-        <img className="md:hidden p-10 mt-10 cursor-pointer" src="src\assets\shared\icon-hamburger.svg" alt="burger.png" onClick={toggleMenu} />
+        <img className="md:hidden p-10 mt-10 cursor-pointer" src={burguer} alt="burger.png" onClick={toggleMenu} />
         {isMenuOpen && (
           <div className="flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-gradient-to-r from-[#274564] to-blue-500 z-10 text-black gap-20 font-barlow-condensed">
             <img
@@ -62,7 +73,7 @@ const Destination = () => {
   const destinations = [
     {
       name: "MOON",
-      image: "src/assets/destination/image-moon.png",
+      image: moonImage,
       description:
         "See our planet as you’ve never seen it before. A perfect relaxing trip away to help regain perspective and come back refreshed. While you’re there, take in some history by visiting the Luna 2 and Apollo 11 landing sites.",
       avgDistance: "384,400 KM",
@@ -70,21 +81,21 @@ const Destination = () => {
     },
     {
       name: "MARS",
-      image: "src/assets/destination/image-mars.png",
+      image: marsImage,
       description: "Don’t forget to pack your hiking boots. You’ll need them to tackle Olympus Mons, the tallest planetary mountain in our solar system. It’s two and a half times the size of Everest!",
       avgDistance: "225 MIL. KM",
       estTravel: "9 MONTHS"
     },
     {
       name: "EUROPA",
-      image: "src/assets/destination/image-europa.png",
+      image: europaImage,
       description: "The smallest of the four Galilean moons orbiting Jupiter, Europa is a winter lover’s dream. With an icy surface, it’s perfect for a bit of ice skating, curling, hockey, or simple relaxation in your snug wintery cabin.",
       avgDistance: "628 MIL. KM",
       estTravel: "3 YEARS"
     },
     {
       name: "TITAN",
-      image: "src/assets/destination/image-titan.png",
+      image: titanImage,
       description: "The only moon known to have a dense atmosphere other than Earth, Titan is a home away from home (just a few hundred degrees colder!). As a bonus, you get striking views of the Rings of Saturn.",
       avgDistance: "1.6 BIL. KM",
       estTravel: "7 YEARS"
@@ -107,7 +118,7 @@ const Destination = () => {
           <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"><g fill="none" fillRule="evenodd"><circle cx="24" cy="24" r="24" fill="#FFF" /><path fill="#0B0D17" d="M24 0c0 16-8 24-24 24 15.718.114 23.718 8.114 24 24 0-16 8-24 24-24-16 0-24-8-24-24z" /></g>
           </svg>
         </button>
-        <img className="md:hidden mt-4 p-4 cursor-pointer" src="src\assets\shared\icon-hamburger.svg" alt="burger.png" onClick={toggleMenu} />
+        <img className="md:hidden mt-4 p-4 cursor-pointer" src={burguer} alt="burger.png" onClick={toggleMenu} />
         {isMenuOpen && (
           <div className="flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-gradient-to-r from-[#274564] to-blue-500 z-10 text-black gap-20 font-barlow-condensed">
             <img
@@ -171,26 +182,26 @@ const Crew = () => {
     {
       title: "COMMANDER",
       name: "DOUGLAS HURLEY",
-      image: "src/assets/crew/image-douglas-hurley.png",
+      image: douglasImage,
       description:
         "Douglas Gerald Hurley is an American engineer, former Marine Corps pilot and former NASA astronaut. He launched into space for the third time as commander of Crew Dragon Demo-2.",
     },
     {
       title: "MISSION SPECIALIST",
       name: "MARK SHUTTLEWORTH",
-      image: "src/assets/crew/image-mark-shuttleworth.png",
+      image: markImage,
       description: "Mark Richard Shuttleworth is the founder and CEO of Canonical, the company behind the Linux-based Ubuntu operating system. Shuttleworth became the first South African to travel to space as a space tourist.",
     },
     {
       title: "PILOT",
       name: "VICTOR GLOVER",
-      image: "src/assets/crew/image-victor-glover.png",
+      image: victorImage,
       description: "Pilot on the first operational flight of the SpaceX Crew Dragon to the International Space Station. Glover is a commander in the U.S. Navy where he pilots an F/A-18.He was a crew member of Expedition 64, and served as a station systems flight engineer.",
     },
     {
       title: "FLIGHT ENGINEER",
       name: "ANOUSHEH ANSARI",
-      image: "src/assets/crew/image-anousheh-ansari.png",
+      image: anoushImage,
       description: "Anousheh Ansari is an Iranian American engineer and co-founder of Prodea Systems. Ansari was the fourth self-funded space tourist, the first self-funded woman to fly to the ISS, and the first Iranian in space.",
     },
   ];
@@ -249,20 +260,20 @@ const Technology = () => {
     {
       title: "THE TERMINOLOGY...",
       name: "LAUNCH VEHICLE",
-      image: "src/assets/technology/image-launch-vehicle-portrait.jpg",
+      image: vehicleImage,
       description:
         "A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a payload from Earth's surface to space, usually to Earth orbit or beyond. Our WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, it's quite an awe-inspiring sight on the launch pad!",
     },
     {
       title: "THE TERMINOLOGY...",
       name: "SPACEPORT",
-      image: "src/assets/technology/image-spaceport-portrait.jpg",
+      image: spaceportImage,
       description: "A spaceport or cosmodrome is a site for launching (or receiving) spacecraft, by analogy to the seaport for ships or airport for aircraft. Based in the famous Cape Canaveral, our spaceport is ideally situated to take advantage of the Earth’s rotation for launch.",
     },
     {
       title: "THE TERMINOLOGY...",
       name: "SPACE CAPSULE",
-      image: "src/assets/technology/image-space-capsule-portrait.jpg",
+      image: capsuleImage,
       description: "A space capsule is an often-crewed spacecraft that uses a blunt-body reentry capsule to reenter the Earth's atmosphere without wings. Our capsule is where you'll spend your time during the flight. It includes a space gym, cinema, and plenty of other activities to keep you entertained.",
     },
   ];
