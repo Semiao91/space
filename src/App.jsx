@@ -28,7 +28,7 @@ const Home = () => {
 
   return (
 
-    <div className="bg-desktop bg-center bg-cover bg-no-repeat min-h-screen">
+    <div className="bg-desktop bg-center bg-no-repeat min-h-screen bg-cover">
       <div className="flex justify-between sm:justify-between items-center">
         <button className="lg:mt-10 lg:p-10 mt-10 p-10">
           <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"><g fill="none" fillRule="evenodd"><circle cx="24" cy="24" r="24" fill="#FFF" /><path fill="#0B0D17" d="M24 0c0 16-8 24-24 24 15.718.114 23.718 8.114 24 24 0-16 8-24 24-24-16 0-24-8-24-24z" /></g>
@@ -52,8 +52,8 @@ const Home = () => {
         <div className="lg:flex-grow sm:flex-grow flex-grow h-1 mt-10 bg-gradient-to-r from-white hidden lg:block"></div>
         <NavBar />
       </div>
-      <div className="flex lg:flex-row flex-col justify-between sm:items-center items-center text-center lg:text-left sm:text-center lg:mt-56 lg:px-56 sm:mt-20">
-        <div className="flex flex-col text-white gap-6 h-[382px] w-[445px]">
+      <div className="flex lg:flex-row flex-col justify-between sm:items-center flex-wrap items-center text-center lg:text-left sm:text-center lg:mt-56 lg:px-56 sm:mt-20">
+        <div className="flex flex-col text-white gap-6 h-[320px] w-[350px] md:h-[382px] md:w-[445px]">
           <h2 className="text-[28px] text-[#D0D6F9] font-barlow-condensed tracking-[4.725px]">SO, YOU WANT TO TRAVEL TO</h2>
           <h1 className="text-[100px] sm:text-[150px] font-bellefair-regular">SPACE</h1>
           <h4 className="text-[18px] text-[#D0D6F9] font-barlow-condensed leading-8">Let’s face it; if you want to go to space, you might as well genuinely go to outer space and not hover kind of on the edge of it.
@@ -112,7 +112,7 @@ const Destination = () => {
 
   return (
 
-    <div className="bg-destination-desktop bg-center bg-cover bg-no-repeat min-h-screen">
+    <div className="bg-destination-desktop bg-center bg-cover bg-no-repeat min-h-screen min-w-screen">
       <div className="flex justify-between sm:justify-between items-center">
         <button className="lg:mt-10 lg:p-10 mt-4 p-4">
           <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"><g fill="none" fillRule="evenodd"><circle cx="24" cy="24" r="24" fill="#FFF" /><path fill="#0B0D17" d="M24 0c0 16-8 24-24 24 15.718.114 23.718 8.114 24 24 0-16 8-24 24-24-16 0-24-8-24-24z" /></g>
@@ -144,7 +144,7 @@ const Destination = () => {
         <div className="flex flex-col text-white gap-6">
           <img className="lg:w-[640px] lg:h-[640px] md:w-[280px] md:h-[280px] w-[200px] h-[200px]" src={destination.image} alt="moon.png" />
         </div>
-        <div className="flex flex-col h-[274px] w-[470px] text-[32px] tracking-[2px] font-bellefair-regular lg:justify-normal lg:place-items-start lg:mt-0 mt-44 gap-4 md:gap-2 lg:gap-12 justify-center items-center">
+        <div className="flex flex-col h-[550px] w-[380px] md:h-[274px] md:w-[470px] text-[32px] tracking-[2px] font-bellefair-regular lg:justify-normal lg:place-items-start lg:mt-0 mt-24 gap-4 md:gap-2 lg:gap-12 justify-center items-center">
           <div className="flex text-[#D0D6F9] text-base gap-7">
             {destinations.map((dest, index) => (
               <a
@@ -178,6 +178,8 @@ const Destination = () => {
 
 const Crew = () => {
   const [selectedCrew, setSelectedCrew] = useState("douglas hurley");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const crews = [
     {
       title: "COMMANDER",
@@ -207,30 +209,52 @@ const Crew = () => {
   ];
 
   const crew = crews.find(crw => crw.name.toLowerCase() === selectedCrew);
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
 
-    <div className="bg-crew-desktop bg-center bg-cover bg-no-repeat min-h-screen">
-      <div className="flex items-center">
-        <button className="mt-10 p-10">
+    <div className="bg-destination-desktop bg-center bg-cover bg-no-repeat min-h-screen">
+      <div className="flex justify-between sm:justify-between items-center">
+        <button className="lg:mt-10 lg:p-10 mt-4 p-4">
           <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"><g fill="none" fillRule="evenodd"><circle cx="24" cy="24" r="24" fill="#FFF" /><path fill="#0B0D17" d="M24 0c0 16-8 24-24 24 15.718.114 23.718 8.114 24 24 0-16 8-24 24-24-16 0-24-8-24-24z" /></g>
           </svg>
         </button>
-        <div className="lg:flex-grow sm:flex-grow flex-grow h-1 mt-10 bg-gradient-to-r from-white"></div>
+        <img className="md:hidden mt-4 p-4 cursor-pointer" src={burguer} alt="burger.png" onClick={toggleMenu} />
+        {isMenuOpen && (
+          <div className="flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-gradient-to-r from-[#274564] to-blue-500 z-10 text-black gap-20 font-barlow-condensed">
+            <img
+              src={crossIcon}
+              alt="close menu"
+              className="cursor-pointer w-10 h-10 absolute top-4 right-4"
+              onClick={toggleMenu}
+            />
+            <Link to="/" className=" text-6xl hover:bg-gray-200 transition-all">HOME</Link>
+            <Link to="/destination" className=" text-6xl hover:bg-gray-200 transition-all">DESTINATION</Link>
+            <Link to="/crew" className=" text-6xl hover:bg-gray-200 transition-all">CREW</Link>
+            <Link to="/technology" className=" text-6xl hover:bg-gray-200 transition-all">TECHNOLOGY</Link>
+          </div>
+        )}
+        <div className="lg:flex-grow sm:flex-grow flex-grow h-1 mt-10 bg-gradient-to-r from-white hidden lg:block"></div>
         <NavBar />
       </div>
+      <div className="flex md:pl-14 justify-center md:justify-start pb-10 lg:hidden">
+            <h2 className="text-[28px] text-[#707070] font-barlow-condensed tracking-[4.725px]">02</h2>
+            <h2 className="text-[28px] text-[#D0D6F9] font-barlow-condensed tracking-[4.725px]">MEET YOUR CREW</h2>
+          </div>
       <div className="flex justify-between mt-20 px-56">
         <div className="flex flex-col text-white gap-6">
-          <div className="flex">
+          <div className="flex md:hidden">
             <h2 className="text-[28px] text-[#707070] font-barlow-condensed tracking-[4.725px]">02</h2>
             <h2 className="text-[28px] text-[#D0D6F9] font-barlow-condensed tracking-[4.725px]">MEET YOUR CREW</h2>
           </div>
           <div>
-            <div className="flex flex-col h-[274px] w-[470px] mt-[100px] tracking-[2px] font-bellefair-regular gap-14">
+            <div className="flex flex-col h-[274px] w-[400px] lg:h-[274px] lg:w-[470px] lg:mt-[100px] tracking-[2px] font-bellefair-regular gap-8 lg:gap14 lg:justify-normal lg:place-items-start lg:text-left text-center justify-center items-center">
               <h1 className="text-white text-[32px] font-bellefair-regular">{crew.title}</h1>
               <h1 className="text-white w-[650px] text-[56px] font-bellefair-regular">{crew.name}</h1>
-              <div className="text-[#D0D6F9] text-base font-barlow-condensed leading-8 min-h-[160px]">{crew.description}
-              </div>
+              <h1 className="text-[#D0D6F9] text-base font-barlow-condensed leading-8 min-h-[160px]">{crew.description}
+              </h1>
               <div className="flex gap-7">
                 {crews.map((dest, index) => (
                   <a
@@ -246,8 +270,8 @@ const Crew = () => {
               </div>
             </div>
           </div>
+        <img className="lg:absolute lg:bottom-0 lg:right-56 absolute bottom-0 lg:w-auto lg:h-auto w-[450px] h-[500px]" src={crew.image} alt="crew.png" />
         </div>
-        <img className="absolute bottom-0 right-56" src={crew.image} alt="crew.png" />
       </div>
     </div>
   )

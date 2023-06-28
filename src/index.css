@@ -19,6 +19,13 @@
     }
   }
 
+  @media screen and (max-width: 640px) {
+    .background-container {
+        background-size: cover;
+        background-position: center;
+    }
+ }
+
 .bg-destination-desktop{
     background-image: url('./assets/destination/background-destination-desktop.jpg');
 }
