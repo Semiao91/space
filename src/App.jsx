@@ -215,7 +215,7 @@ const Crew = () => {
 
   return (
 
-    <div className="bg-destination-desktop bg-center bg-cover bg-no-repeat min-h-screen">
+    <div className="bg-crew-desktop bg-center bg-cover bg-no-repeat min-h-screen">
       <div className="flex justify-between sm:justify-between items-center">
         <button className="lg:mt-10 lg:p-10 mt-4 p-4">
           <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"><g fill="none" fillRule="evenodd"><circle cx="24" cy="24" r="24" fill="#FFF" /><path fill="#0B0D17" d="M24 0c0 16-8 24-24 24 15.718.114 23.718 8.114 24 24 0-16 8-24 24-24-16 0-24-8-24-24z" /></g>
@@ -240,9 +240,9 @@ const Crew = () => {
         <NavBar />
       </div>
       <div className="flex md:pl-14 justify-center md:justify-start pb-10 lg:hidden">
-            <h2 className="text-[28px] text-[#707070] font-barlow-condensed tracking-[4.725px]">02</h2>
-            <h2 className="text-[28px] text-[#D0D6F9] font-barlow-condensed tracking-[4.725px]">MEET YOUR CREW</h2>
-          </div>
+        <h2 className="text-[28px] text-[#707070] font-barlow-condensed tracking-[4.725px]">02</h2>
+        <h2 className="text-[28px] text-[#D0D6F9] font-barlow-condensed tracking-[4.725px]">MEET YOUR CREW</h2>
+      </div>
       <div className="flex justify-between mt-20 px-56">
         <div className="flex flex-col text-white gap-6">
           <div className="flex md:hidden">
@@ -270,7 +270,7 @@ const Crew = () => {
               </div>
             </div>
           </div>
-        <img className="lg:absolute lg:bottom-0 lg:right-56 absolute bottom-0 lg:w-auto lg:h-auto w-[450px] h-[500px]" src={crew.image} alt="crew.png" />
+          <img className="lg:absolute lg:bottom-0 lg:right-56 absolute bottom-0 lg:w-auto lg:h-auto w-[450px] h-[500px]" src={crew.image} alt="crew.png" />
         </div>
       </div>
     </div>
@@ -324,10 +324,7 @@ const Technology = () => {
           {techs.map((tech, index) => (
             <a
               key={index}
-              className={`h-[80px] w-[80px] text-[32px] font-bellefair-regular flex justify-center items-center text-white rounded-full border-[1px] transition-all cursor-pointer ${selectedTech === tech.name.toLowerCase()
-                ? "bg-white text-black"
-                : "hover:border-2"
-                }`}
+              className={`h-[80px] w-[80px] text-[32px] font-bellefair-regular flex justify-center items-center text-white rounded-full border-[1px] transition-all cursor-pointer ${selectedTech === tech.name.toLowerCase() ? " bg-slate-400" : "hover:border-2"}`}
               onClick={() => setSelectedTech(tech.name.toLowerCase())}
             >{index + 1}
             </a>
